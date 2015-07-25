@@ -1,0 +1,21 @@
+{
+  "name": "allex_usersessionsservice",
+  "version": "0.1.0",
+  "description": "UserSessionsService",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.hers.rs:allex_services/usersessions.git"
+  },
+  "keywords": [
+    "ecosystem:allex",
+    "Service",
+    "UserSessions"
+  ],
+  "author": "HERS Belgrade",
+  "license": "ISC"
+}
+
