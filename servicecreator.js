@@ -18,6 +18,9 @@ function createUserSessionsService(execlib, ParentServicePack) {
   UserSessionsService.prototype.__cleanUp = function() {
     ParentService.prototype.__cleanUp.call(this);
   };
+  UserSessionsService.prototype.onSuperSink = function (supersink) {
+    this.supersink = supersink;
+  };
   UserSessionsService.prototype.createStorage = function(storagedescriptor) {
     return ParentService.prototype.createStorage.call(this, storagedescriptor);
   };
