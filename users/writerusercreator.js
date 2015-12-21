@@ -4,6 +4,11 @@ function createWriterUser(execlib, ParentUser) {
     ParentUser = execlib.execSuite.ServicePack.Service.prototype.userFactory.get('user');
   }
 
+  var lib = execlib.lib,
+    q = lib.q,
+    execSuite = execlib.execSuite,
+    taskRegistry = execSuite.taskRegistry;
+
   function WriterUser(prophash) {
     ParentUser.call(this, prophash);
   }
@@ -12,7 +17,7 @@ function createWriterUser(execlib, ParentUser) {
     ParentUser.prototype.__cleanUp.call(this);
   };
 
-  User.prototype.findSession = function (sessionid, defer) {
+  WriterUser.prototype.findSession = function (sessionid, defer) {
     taskRegistry.run('readFromDataSink', {
       sink: this.__service.supersink,
       filter: {

@@ -7,7 +7,7 @@ function createWriterSink(execlib, ParentSink) {
   function WriterSink(prophash, client) {
     ParentSink.call(this, prophash, client);
   }
-  ParentSink.inherit(WriterSink, require('../methoddescriptors/user'), require('../visiblefields/user'),require('../storagedescriptor'));
+  ParentSink.inherit(WriterSink, require('../methoddescriptors/writeruser'), require('../visiblefields/writeruser'),require('../storagedescriptor'));
   WriterSink.prototype.__cleanUp = function () {
     ParentSink.prototype.__cleanUp.call(this);
   };
