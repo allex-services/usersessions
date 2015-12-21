@@ -7,9 +7,22 @@ function createWriterUser(execlib, ParentUser) {
   function WriterUser(prophash) {
     ParentUser.call(this, prophash);
   }
-  ParentUser.inherit(WriterUser, require('../methoddescriptors/user'), [/*visible state fields here*/]/*or a ctor for StateStream filter*/, require('../visiblefields/user'));
+  ParentUser.inherit(WriterUser, require('../methoddescriptors/writeruser'), [/*visible state fields here*/]/*or a ctor for StateStream filter*/, require('../visiblefields/writeruser'));
   WriterUser.prototype.__cleanUp = function () {
     ParentUser.prototype.__cleanUp.call(this);
+  };
+
+  User.prototype.findSession = function (sessionid, defer) {
+    taskRegistry.run('readFromDataSink', {
+      sink: this.__service.supersink,
+      filter: {
+        op: 'eq',
+        field: 'session',
+        value: sessionid
+      },
+      singleshot: true,
+      cb: defer.resolve.bind(defer)
+    });
   };
 
   return WriterUser;

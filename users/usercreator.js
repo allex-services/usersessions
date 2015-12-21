@@ -17,19 +17,6 @@ function createUser(execlib, ParentUser) {
     ParentUser.prototype.__cleanUp.call(this);
   };
 
-  User.prototype.findSession = function (sessionid, defer) {
-    taskRegistry.run('readFromDataSink', {
-      sink: this.__service.supersink,
-      filter: {
-        op: 'eq',
-        field: 'session',
-        value: sessionid
-      },
-      singleshot: true,
-      cb: defer.resolve.bind(defer)
-    });
-  };
-
   return User;
 }
 
