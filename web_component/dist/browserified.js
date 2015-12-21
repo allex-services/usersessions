@@ -15,11 +15,13 @@ function createClientSide(execlib) {
 
 module.exports = createClientSide;
 
-},{"./sinkmapcreator":5}],3:[function(require,module,exports){
+},{"./sinkmapcreator":6}],3:[function(require,module,exports){
 module.exports = {
 };
 
 },{}],4:[function(require,module,exports){
+arguments[4][3][0].apply(exports,arguments)
+},{"dup":3}],5:[function(require,module,exports){
 module.exports = {
   findSession: [{
     title: 'Session ID',
@@ -27,7 +29,7 @@ module.exports = {
   }]
 };
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 function sinkMapCreator(execlib, ParentServicePack) {
   'use strict';
   var sinkmap = new (execlib.lib.Map), ParentSinkMap = ParentServicePack.SinkMap;
@@ -40,7 +42,7 @@ function sinkMapCreator(execlib, ParentServicePack) {
 
 module.exports = sinkMapCreator;
 
-},{"./sinks/servicesinkcreator":6,"./sinks/usersinkcreator":7,"./sinks/writersinkcreator":8}],6:[function(require,module,exports){
+},{"./sinks/servicesinkcreator":7,"./sinks/usersinkcreator":8,"./sinks/writersinkcreator":9}],7:[function(require,module,exports){
 function createServiceSink(execlib, ParentSink) {
   'use strict';
   if (!ParentSink) {
@@ -59,7 +61,7 @@ function createServiceSink(execlib, ParentSink) {
 
 module.exports = createServiceSink;
 
-},{"../methoddescriptors/serviceuser":3,"../storagedescriptor":9,"../visiblefields/serviceuser":10}],7:[function(require,module,exports){
+},{"../methoddescriptors/serviceuser":3,"../storagedescriptor":10,"../visiblefields/serviceuser":11}],8:[function(require,module,exports){
 function createUserSink(execlib, ParentSink) {
   'use strict';
   if (!ParentSink) {
@@ -78,7 +80,7 @@ function createUserSink(execlib, ParentSink) {
 
 module.exports = createUserSink;
 
-},{"../methoddescriptors/user":4,"../storagedescriptor":9,"../visiblefields/user":11}],8:[function(require,module,exports){
+},{"../methoddescriptors/user":4,"../storagedescriptor":10,"../visiblefields/user":12}],9:[function(require,module,exports){
 function createWriterSink(execlib, ParentSink) {
   'use strict';
   if (!ParentSink) {
@@ -88,7 +90,7 @@ function createWriterSink(execlib, ParentSink) {
   function WriterSink(prophash, client) {
     ParentSink.call(this, prophash, client);
   }
-  ParentSink.inherit(WriterSink, require('../methoddescriptors/user'), require('../visiblefields/user'),require('../storagedescriptor'));
+  ParentSink.inherit(WriterSink, require('../methoddescriptors/writeruser'), require('../visiblefields/writeruser'),require('../storagedescriptor'));
   WriterSink.prototype.__cleanUp = function () {
     ParentSink.prototype.__cleanUp.call(this);
   };
@@ -97,7 +99,7 @@ function createWriterSink(execlib, ParentSink) {
 
 module.exports = createWriterSink;
 
-},{"../methoddescriptors/user":4,"../storagedescriptor":9,"../visiblefields/user":11}],9:[function(require,module,exports){
+},{"../methoddescriptors/writeruser":5,"../storagedescriptor":10,"../visiblefields/writeruser":13}],10:[function(require,module,exports){
 module.exports = {
   record:{
     primaryKey: 'session',
@@ -115,10 +117,12 @@ module.exports = {
   }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = [];
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = ['session','created','username'];
 
-},{}]},{},[1]);
+},{}],13:[function(require,module,exports){
+arguments[4][11][0].apply(exports,arguments)
+},{"dup":11}]},{},[1]);
