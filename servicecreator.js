@@ -6,8 +6,7 @@ function createUserSessionsService(execlib, ParentServicePack) {
   function factoryCreator(parentFactory) {
     return {
       'service': require('./users/serviceusercreator')(execlib, parentFactory.get('service')),
-      'user': require('./users/usercreator')(execlib, parentFactory.get('user')),
-      'writer': require('./users/writerusercreator')(execlib, parentFactory.get('writer'))
+      'user': require('./users/usercreator')(execlib, parentFactory.get('user'))
     };
   }
 
