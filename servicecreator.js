@@ -1,7 +1,6 @@
-function createUserSessionsService(execlib, ParentServicePack) {
+function createUserSessionsService(execlib, ParentService) {
   'use strict';
-  var ParentService = ParentServicePack.Service,
-    dataSuite = execlib.dataSuite;
+  var dataSuite = execlib.dataSuite;
 
   function factoryCreator(parentFactory) {
     return {
