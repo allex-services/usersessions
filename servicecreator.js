@@ -11,6 +11,7 @@ function createUserSessionsService(execlib, ParentService) {
 
   function UserSessionsService(prophash) {
     ParentService.call(this, prophash);
+    this.expirydays = prophash.expirydays || 10;
   }
   ParentService.inherit(UserSessionsService, factoryCreator, require('./storagedescriptor'));
   UserSessionsService.prototype.__cleanUp = function() {
@@ -21,6 +22,15 @@ function createUserSessionsService(execlib, ParentService) {
   };
   UserSessionsService.prototype.createStorage = function(storagedescriptor) {
     return ParentService.prototype.createStorage.call(this, storagedescriptor);
+  };
+  UserSessionsService.prototype.clearOld = function () {
+    this.supersink.subConnect('.', {name: 'user', role: 'user'}).then(
+      this.doClearOld.bind(this)
+    );
+  };
+  UserSessionsService.prototype.doClearOld = function (datasink) {
+    datasink.call('delete', {op: 'lt', field: 'created', value: Date.now()-this.expirydays*24*lib.intervals.Hour});
+    lib.runNext(this.clearOld.bind(this), lib.intervals.Hour);
   };
   return UserSessionsService;
 }
