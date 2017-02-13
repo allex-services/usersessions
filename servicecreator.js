@@ -1,6 +1,7 @@
 function createUserSessionsService(execlib, ParentService) {
   'use strict';
-  var dataSuite = execlib.dataSuite;
+  var lib = execlib.lib,
+    dataSuite = execlib.dataSuite;
 
   function factoryCreator(parentFactory) {
     return {
@@ -19,6 +20,7 @@ function createUserSessionsService(execlib, ParentService) {
   };
   UserSessionsService.prototype.onSuperSink = function (supersink) {
     this.supersink = supersink;
+    this.clearOld();
   };
   UserSessionsService.prototype.createStorage = function(storagedescriptor) {
     return ParentService.prototype.createStorage.call(this, storagedescriptor);
