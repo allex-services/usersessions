@@ -1,6 +1,6 @@
 module.exports = {
+  primaryKey: 'session',
   record:{
-    primaryKey: 'session',
     fields:[{
       name: 'session'
     },{
