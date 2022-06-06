@@ -1,6 +1,6 @@
 {
   "name": "allex_usersessionsservice",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "UserSessionsService",
   "main": "index.js",
   "scripts": {
