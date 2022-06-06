@@ -62,15 +62,19 @@ module.exports = {
   primaryKey: 'session',
   record:{
     fields:[{
-      name: 'session'
+      name: 'session',
+      type: 'string'
     },{
       name: 'created',
-      default: '{{Date.now()}}'
+      default: '{{Date.now()}}',
+      type: 'number'
     },{
       name: 'lastused',
-      default: '{{Date.now()}}'
+      default: '{{Date.now()}}',
+      type: 'number'
     },{
-      name: 'username'
+      name: 'username',
+      type: 'string'
     }]
   }
 };
