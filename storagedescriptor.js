@@ -4,7 +4,7 @@ module.exports = {
     fields:[{
       name: 'session',
       type: 'string',
-      sqltype: 'nvarchar[50]',
+      sqltype: 'nvarchar(50)',
       postgresqltype: 'text',
       nullable: false
     },{
@@ -22,7 +22,7 @@ module.exports = {
     },{
       name: 'username',
       type: 'string',
-      sqltype: 'nvarchar[100]',
+      sqltype: 'nvarchar(100)',
       postgresqltype: 'text',
       nullable: false
     }]

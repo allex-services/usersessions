@@ -59,22 +59,32 @@ module.exports = createUserSink;
 
 },{"../methoddescriptors/user":3,"../storagedescriptor":7,"../visiblefields/user":9}],7:[function(require,module,exports){
 module.exports = {
-  primaryKey: 'session',
   record:{
+    primaryKey: 'session',
     fields:[{
       name: 'session',
-      type: 'string'
+      type: 'string',
+      sqltype: 'nvarchar(50)',
+      postgresqltype: 'text',
+      nullable: false
     },{
       name: 'created',
       default: '{{Date.now()}}',
-      type: 'number'
+      type: 'number',
+      sqltype: 'bigint',
+      nullable: false
     },{
       name: 'lastused',
       default: '{{Date.now()}}',
-      type: 'number'
+      type: 'number',
+      sqltype: 'bigint',
+      nullable: false
     },{
       name: 'username',
-      type: 'string'
+      type: 'string',
+      sqltype: 'nvarchar(100)',
+      postgresqltype: 'text',
+      nullable: false
     }]
   }
 };
